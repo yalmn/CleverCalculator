@@ -2,7 +2,10 @@
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		System.out.println(GanzzahligeOperationen.wurzelziehen(30));
+		
+		GanzzahligeOperationen.wurzelziehen(5);
 
 	}
 
