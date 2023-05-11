@@ -1,10 +1,10 @@
-import javax.swing.plaf.metal.MetalIconFactory.TreeControlIcon;
-
 public class GanzzahligeOperationen {
 
 	public static final String NICHTGANZZAHLIGTEILBAR = "Operation kann nicht ganzzahlig geteilt werden.";
 
 	private char operation;
+	
+	public GanzzahligeOperationen() {}
 
 	public GanzzahligeOperationen(char operation) {
 		super();

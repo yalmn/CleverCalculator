@@ -3,10 +3,16 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		System.out.println(GanzzahligeOperationen.wurzelziehen(30));
-		
-		GanzzahligeOperationen.wurzelziehen(5);
+		LineareAlgebra funktion = new LineareAlgebra(5, 10);
 
+		LineareAlgebra.anzeigenLineareFunktion(funktion);
+		
+		System.out.println(Formelsammlung.lineareFunktionYAchsenSchnitt(funktion));
+		System.out.println(Formelsammlung.lineareFunktionNullstelle(funktion));
+		
+		
+		
+		
 	}
 
 }
