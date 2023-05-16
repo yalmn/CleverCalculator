@@ -1,5 +1,4 @@
 public class Bruch {
-
 	public static final String DIVBYZERO = "Div by zero.";
 
 	private int zaehler;
@@ -47,6 +46,20 @@ public class Bruch {
 			return new Bruch(zaehlerBruch, nennerBruch);
 		}
 	}
+	
+	public static Bruch addiereDreieBrueche(Bruch ersterBruch, Bruch zweiterBruch, Bruch dritterBruch) {
+		if (ersterBruch.nenner == 0 || zweiterBruch.nenner == 0 || dritterBruch.nenner == 0) {
+			throw new IllegalArgumentException(DIVBYZERO);
+		} else {
+			int zaehlerBruch = (ersterBruch.zaehler * zweiterBruch.nenner * dritterBruch.nenner)
+					+ (zweiterBruch.zaehler * ersterBruch.nenner * dritterBruch.nenner) +
+					(dritterBruch.zaehler * ersterBruch.nenner * zweiterBruch.nenner);
+			int nennerBruch = (ersterBruch.nenner * zweiterBruch.nenner * dritterBruch.nenner);
+
+			return new Bruch(zaehlerBruch, nennerBruch);
+		}
+	}
+	
 
 	public static Bruch subtraktBrueche(Bruch ersterBruch, Bruch zweiterBruch) {
 		if (ersterBruch.nenner == 0 || zweiterBruch.nenner == 0) {
@@ -70,6 +83,17 @@ public class Bruch {
 			return new Bruch(zaehlerBruch, nennerBruch);
 		}
 	}
+	
+	public static Bruch multipliziereDreiBrueche(Bruch ersterBruch, Bruch zweiterBruch, Bruch dritterBruch) {
+		if (ersterBruch.nenner == 0 || zweiterBruch.nenner == 0 || dritterBruch.nenner == 0) {
+			throw new IllegalArgumentException(DIVBYZERO);
+		} else {
+			int zaehlerBruch = (ersterBruch.zaehler * zweiterBruch.zaehler * dritterBruch.zaehler);
+			int nennerBruch = (ersterBruch.nenner * zweiterBruch.nenner * dritterBruch.nenner);
+
+			return new Bruch(zaehlerBruch, nennerBruch);
+		}
+	}
 
 	public static Bruch dividiereBrueche(Bruch ersterBruch, Bruch zweiterBruch) {
 		if (ersterBruch.nenner == 0 || zweiterBruch.nenner == 0) {
@@ -81,6 +105,27 @@ public class Bruch {
 			return new Bruch(zaehlerBruch, nennerBruch);
 		}
 	}
+	
+	public static Bruch convertToBruch(int n) {
+		return new Bruch(n, 1);
+	}
+	
+	public static double convertToDouble(Bruch b) {
+		double a = b.zaehler;
+		double c = b.nenner;
+		return a / c;
+	}
+	
+	public static Bruch doubleToBruch(double n) {
+		String valueN = String.valueOf(n);
+		int digits = valueN.length()-valueN.indexOf('.');
+		int nenner = (int) Math.pow(10, digits);
+	    int zaehler = (int) (n * nenner);
+	    Bruch bruch = new Bruch(zaehler, nenner);
+	    
+	    return Bruch.kuerzeBruch(bruch);
+	}
+	
 
 	public static int ggT(int a, int b) {
 		if (b == 0) {
@@ -89,5 +134,4 @@ public class Bruch {
 			return ggT(b, a % b);
 		}
 	}
-
 }

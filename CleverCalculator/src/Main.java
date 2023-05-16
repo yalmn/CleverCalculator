@@ -1,3 +1,4 @@
+import java.nio.channels.NonReadableChannelException;
 import java.text.BreakIterator;
 import java.util.Date;
 
@@ -6,13 +7,21 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		LineareAlgebra fx = new LineareAlgebra(-3, 2);
-		LineareAlgebra gx = new LineareAlgebra(2, -3);
+		double a = 26.244;
+		Bruch.anzeigenBruch(Bruch.doubleToBruch(a));
 		
-		Tupel p1 = new Tupel(3, 6);
-		Tupel p2 = new Tupel(4, 1);
-				
-		Tupel.anzeigenTupel(Formelsammlung.lineareFunktionSchnittpunktZweiGleichungen(fx, gx));
+		
+		Dreieck dreieick = new Dreieck(1, 3, 5, 7);
+		Bruch flaechenInahlt = Formelsammlung.flaecheninhaltDreieck(dreieick);
+		
+		System.out.println("FLächeninhalt in Double: ");
+		System.out.println(Bruch.convertToDouble(flaechenInahlt));
+		
+		Dreieck.anzeigenDreieck(dreieick);
+		System.out.println("Flächeninhalt des Dreiecks: ");
+		Bruch.anzeigenBruch(Formelsammlung.flaecheninhaltDreieck(dreieick));
+		System.out.println("Umfang des Dreiecks: ");
+		Bruch.anzeigenBruch(Formelsammlung.umfangDreieck(dreieick));
 	}
 	
 }
